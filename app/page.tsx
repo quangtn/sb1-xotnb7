@@ -118,8 +118,8 @@ export default function MedSpaSurvey() {
   }
 
   const getStepProgress = () => {
-    if (step < 2 || step > 4) return null
-    return ((step - 1) / 3) * 100
+    if (step < 2 || step > 4) return 0;
+    return ((step - 1) / 3) * 100;
   }
 
   const renderCardTitle = () => {
@@ -153,7 +153,7 @@ export default function MedSpaSurvey() {
         </CardHeader>
         {step >= 2 && step <= 4 && (
           <div className="px-6 pb-4">
-            <Progress value={getStepProgress()} className="w-full h-2" />
+            <Progress value={getStepProgress()} max={100} className="w-full h-2" />
             <p className="text-sm text-muted-foreground mt-2">Question {step - 1} of 3</p>
           </div>
         )}
